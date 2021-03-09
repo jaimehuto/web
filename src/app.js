@@ -63,6 +63,33 @@
         });
     }
 
+    function jh_tools(){
+
+        $('body').off('keydown');
+        $('body').on('keydown', function(e){
+
+            var jh_executed = false;
+            
+            // Do action on CTRL + .
+            if (e.keyCode == 190 && e.ctrlKey) {
+
+                $('.js-body').toggleClass('is-debug');
+                jh_executed = true;
+                
+            }
+
+            if(!!jh_executed){
+
+                // e.stopPropagation();
+                // e.preventDefault();
+                return false;
+
+            }
+
+        });
+
+    }
+
     function callFn(selector, fn, args){ if( $(selector).length > 0 ) fn(args); }
 
     $(window).on("load", function(){
@@ -70,6 +97,8 @@
         callFn(".js-loader", loader);
         
         callFn(".js-scroll", scroll);
+
+        callFn(".js-debug", jh_tools);
 
     });
 
