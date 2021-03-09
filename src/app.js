@@ -71,7 +71,7 @@
             var jh_executed = false;
             
             // Do action on CTRL + .
-            if (e.keyCode == 190 && e.ctrlKey) {
+            if (e.keyCode == 190 && e.ctrlKey || e.keyCode == 46 && e.ctrlKey) {
 
                 $('.js-body').toggleClass('is-debug');
                 jh_executed = true;
